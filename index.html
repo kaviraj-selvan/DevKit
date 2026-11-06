@@ -61,7 +61,19 @@ textarea{font:14px/1.55 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;mi
 .ve{display:inline;padding:1px 6px;background:var(--s1);border:1px solid var(--bd);border-radius:6px;white-space:pre-wrap;word-break:break-all;cursor:text;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .ve:empty{display:inline-block;min-width:4ch;min-height:1.5em;vertical-align:bottom}
 .ve:focus{border-color:var(--a);box-shadow:0 0 0 2px color-mix(in srgb,var(--a2) 35%,transparent)}
-.x{border:0;background:none;color:var(--mu);cursor:pointer;opacity:0;font-size:14px}.lf:hover .x,.x:focus{opacity:1}.x:hover{color:var(--er)}
+.x{border:0;background:none;color:var(--mu);cursor:pointer;opacity:0;font-size:14px}.lf:hover .x,.x:focus{opacity:1}.tw{position:relative;display:block;background:var(--s2);border-radius:11px}
+.tw textarea{position:relative;z-index:1;display:block;background:transparent}
+.mir{position:absolute;z-index:0;top:0;left:0;bottom:0;right:0;border:1px solid transparent;border-radius:11px;padding:10px 12px;font:14px/1.55 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:break-word;overflow:hidden;color:transparent;pointer-events:none}
+.mir mark{background:color-mix(in srgb,var(--a2) 40%,transparent);color:transparent;border-radius:3px;box-shadow:0 0 0 1px var(--a2)}
+.x:hover{color:var(--er)}
+.ac{display:inline-flex;gap:2px;margin-left:8px;opacity:0;vertical-align:baseline;white-space:nowrap}
+.lf:hover .ac,.tree summary:hover .ac,.ac:focus-within{opacity:1}
+@media(hover:none){.ac{opacity:1}}
+.ab{border:0;background:none;color:var(--mu);cursor:pointer;font:inherit;font-size:14px;padding:0 4px;border-radius:5px}.ab:hover{color:var(--a2);background:var(--s1)}.ab.del:hover{color:var(--er)}
+.k.ed{background:var(--s1);border:1px solid var(--a);border-radius:5px;padding:0 4px;outline:0;cursor:text}
+.split{display:none;position:relative;cursor:col-resize;touch-action:none;outline:0}
+.split::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;border-radius:2px;background:var(--bd);transition:background .15s,width .15s}
+.split:hover::before,.split:focus-visible::before,.split.drag::before{background:var(--a);width:4px;margin-left:-2px}
 table{width:100%;border-collapse:collapse}td{padding:11px 6px;border-bottom:1px solid var(--bd)}td.z{font-weight:600;white-space:nowrap;padding-right:14px}td.v{font:14px 'IBM Plex Mono',ui-monospace,Menlo,monospace;word-break:break-word}
 .now{font:800 clamp(30px,6vw,44px)/1 'IBM Plex Mono',ui-monospace,Menlo,monospace;letter-spacing:-1px}
 .out{font:14px 'IBM Plex Mono',ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;background:var(--s2);border:1px solid var(--bd);border-radius:11px;padding:12px;min-height:48px}
@@ -132,8 +144,10 @@ body.full main{padding:18px 26px 60px}
 
 @media(min-width:861px){main:has(#v-json.on){padding-bottom:20px}
 #v-json.on{display:flex;flex-direction:column;height:calc(100vh - 109px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));height:calc(100dvh - 109px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
-#v-json .grid{flex:1;min-height:0;grid-template-rows:minmax(0,1fr)}
+#v-json .grid{flex:1;min-height:0;grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,var(--l,1fr)) 16px minmax(0,var(--r,1fr));gap:0}
+#v-json .split{display:block}
 #v-json .card{display:flex;flex-direction:column;min-height:0;min-width:0;margin-bottom:0}
+#v-json .tw{flex:1;min-height:0;display:flex}
 #v-json textarea{flex:1;min-height:0;resize:none}
 #v-json .tree{flex:1;min-height:0;max-height:none}}
 </style>
@@ -161,8 +175,9 @@ body.full main{padding:18px 26px 60px}
 <span class="sp"></span>
 <button class="b" id="cpf">Copy formatted</button><button class="b" id="cp1">Copy single line</button><button class="b" id="smp">Sample</button><button class="b" id="clr">Clear</button></div>
 <div class="grid">
-<div class="card"><div class="row" style="margin:0 0 8px"><label class="lbl" for="inp" style="margin:0">JSON text</label><div class="st" id="stat" role="status" style="margin:0;min-height:0;flex:1;text-align:right"></div></div><textarea id="inp" spellcheck="false" placeholder="Paste JSON here…"></textarea></div>
-<div class="card"><div class="row" style="margin:0 0 8px"><span class="lbl" style="margin:0;flex:1">Visual editor <span class="chip" id="mc" hidden></span></span><button class="b" id="exp">Expand</button><button class="b" id="col">Collapse</button></div><div class="row" style="margin:0 0 10px"><input id="qk" type="search" class="s" placeholder="Find key…" aria-label="Find key" style="flex:1;min-width:130px"><input id="qv" type="search" class="s" placeholder="Find value…" aria-label="Find value" style="flex:1;min-width:130px"><button class="b" id="pv" aria-label="Previous match">▲</button><button class="b" id="nx" aria-label="Next match">▼</button><label class="ck" style="color:var(--mu)"><input type="checkbox" id="only">Only matches</label></div><div class="tree" id="tree"><span style="color:var(--mu)">Valid JSON shows up here as an editable tree. Click any value to change it; hover a row to delete it.</span></div></div>
+<div class="card"><div class="row" style="margin:0 0 8px"><label class="lbl" for="inp" style="margin:0">JSON text</label><div class="st" id="stat" role="status" style="margin:0;min-height:0;flex:1;text-align:right"></div></div><div class="tw" id="tw"><div class="mir" id="mir" aria-hidden="true"></div><textarea id="inp" spellcheck="false" placeholder="Paste JSON here…"></textarea></div></div>
+<div class="split" id="split" role="separator" aria-orientation="vertical" aria-label="Resize JSON text and visual editor" aria-valuemin="20" aria-valuemax="80" aria-valuenow="50" tabindex="0" title="Drag to resize · double-click to reset"></div>
+<div class="card"><div class="row" style="margin:0 0 8px"><span class="lbl" style="margin:0;flex:1">Visual editor <span class="chip" id="mc" hidden></span></span><button class="b" id="exp">Expand</button><button class="b" id="col">Collapse</button></div><div class="row" style="margin:0 0 10px"><input id="qk" type="search" class="s" placeholder="Find key…" aria-label="Find key" style="flex:1;min-width:130px"><input id="qv" type="search" class="s" placeholder="Find value…" aria-label="Find value" style="flex:1;min-width:130px"><button class="b" id="pv" aria-label="Previous match">▲</button><button class="b" id="nx" aria-label="Next match">▼</button><label class="ck" style="color:var(--mu)"><input type="checkbox" id="only">Only matches</label></div><div class="tree" id="tree"><span style="color:var(--mu)">Valid JSON shows up here as an editable tree. Click a value to edit it, double-click a key to rename it, and hover a row to copy, rename or delete.</span></div></div>
 </div></section>
 
 <section class="view" id="v-time">
@@ -219,22 +234,30 @@ addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()===
 if(/input|textarea|select/i.test(document.activeElement.tagName)||e.ctrlKey||e.metaKey||e.altKey)return;
 if(e.key==='/'){e.preventDefault();popen()}else if(+e.key>=1&&+e.key<=T.length)go(T[e.key-1].id)});
 /* JSON */
-let data=null;const inp=$('#inp'),stat=$('#stat'),tree=$('#tree');
+let data=null;const inp=$('#inp'),stat=$('#stat'),tree=$('#tree'),mir=$('#mir');
 const ind=()=>{const v=$('#ind').value;return v==='t'?'\t':+v};
-const sync=()=>{inp.value=JSON.stringify(data,null,ind())};
-function parse(){const s=inp.value.trim();if(!s){data=null;stat.textContent='';return}
+const sync=()=>{inp.value=JSON.stringify(data,null,ind());hlClear()};
+function parse(){hlClear();const s=inp.value.trim();if(!s){data=null;stat.textContent='';return}
 try{data=JSON.parse(s);stat.className='st ok';stat.textContent='✓ Valid JSON · '+s.length+' characters';tree.innerHTML='';tree.appendChild(node(data,'root',null,true));find(false)}
 catch(e){data=null;stat.className='st er';stat.textContent='✕ '+e.message}}
 const EDMODE=(()=>{const e=document.createElement('span');try{e.contentEditable='plaintext-only'}catch(x){}return e.contentEditable==='plaintext-only'?'plaintext-only':'true'})();
+function renameKey(el,k,p){const ed=()=>EDMODE==='plaintext-only'?el.textContent:el.innerText;el.contentEditable=EDMODE;el.classList.add('ed');el.textContent=k;el.focus();const r=document.createRange();r.selectNodeContents(el);const sl=getSelection();sl.removeAllRanges();sl.addRange(r);
+const done=ok=>{el.onblur=null;el.onkeydown=null;el.onclick=null;el.removeAttribute('contenteditable');el.classList.remove('ed');const nk=ed().replace(/\n/g,'');
+if(ok&&nk!==k){if(Object.prototype.hasOwnProperty.call(p,nk)){stat.className='st er';stat.textContent='\u2715 Key "'+nk+'" already exists';find(false);return}const ent=Object.entries(p);ent.forEach(([a])=>delete p[a]);ent.forEach(([a,b])=>{p[a===k?nk:a]=b});sync();parse()}else find(false)};
+el.onblur=()=>done(true);el.onclick=e=>{e.preventDefault();e.stopPropagation()};el.onkeydown=e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();el.blur()}else if(e.key==='Escape'){e.preventDefault();done(false)}}}
+function acts(v,k,p,del){const g=document.createElement('span');g.className='ac';const keyed=!!p&&!Array.isArray(p);
+const mk=(c,t,l,fn)=>{const b=document.createElement('button');b.type='button';b.className='ab '+c;b.textContent=t;b.title=l;b.setAttribute('aria-label',l);b.onclick=e=>{e.preventDefault();e.stopPropagation();fn(e)};g.appendChild(b)};
+mk('','\u29c9',keyed?'Copy field and value (Shift: value only)':'Copy value',e=>{const t=JSON.stringify(v,null,ind());copy(keyed&&!e.shiftKey?JSON.stringify(k)+': '+t:t)});
+if(keyed)mk('','\u270e','Rename key',()=>renameKey(g.parentElement.firstElementChild,k,p));
+if(del&&p)mk('del','\u2715','Delete '+k,()=>{Array.isArray(p)?p.splice(k,1):delete p[k];sync();parse()});return g}
 function node(v,k,p,open){const d=document.createElement('div');
 if(v&&typeof v==='object'){const a=Array.isArray(v),det=document.createElement('details');det.open=true;det.dataset.k=String(k);
-const sm=document.createElement('summary');sm.innerHTML='<span class="k"></span><span class="t">'+(a?'['+v.length+']':'{'+Object.keys(v).length+'}')+'</span>';sm.firstChild.textContent=k;det.appendChild(sm);
+const sm=document.createElement('summary');sm.innerHTML='<span class="k"></span><span class="t">'+(a?'['+v.length+']':'{'+Object.keys(v).length+'}')+'</span>';sm.firstChild.textContent=k;sm.firstChild.ondblclick=()=>{if(p&&!Array.isArray(p))renameKey(sm.firstChild,k,p)};sm.appendChild(acts(v,k,p,false));det.appendChild(sm);
 const bx=document.createElement('div');Object.keys(v).forEach(kk=>bx.appendChild(node(v[kk],kk,v)));det.appendChild(bx);return det}
 d.className='lf';d.dataset.k=String(k);const kk=document.createElement('span');kk.className='k';kk.textContent=k+': ';
 const i=document.createElement('span');i.className='ve';i.contentEditable=EDMODE;i.tabIndex=0;i.spellcheck=false;i.setAttribute('role','textbox');Object.defineProperty(i,'value',{get(){return EDMODE==='plaintext-only'?i.textContent:i.innerText},set(t){i.textContent=t}});i.value=v===null?'null':String(v);i.setAttribute('aria-label','Value of '+k);i.style.color=typeof v==='string'?'var(--ok)':'var(--tx)';i.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();i.blur()}};i.onpaste=e=>{e.preventDefault();document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text'))};
 const s0=i.value;i.onblur=()=>{if(i.value===s0)return;let n=i.value;if(typeof v!=='string'){try{n=JSON.parse(n)}catch(e){}}p[k]=n;sync();parse()};
-const x=document.createElement('button');x.className='x';x.textContent='✕';x.setAttribute('aria-label','Delete '+k);x.onclick=()=>{Array.isArray(p)?p.splice(k,1):delete p[k];sync();parse()};
-const sp=document.createElement('span');sp.className='vv';sp.hidden=true;sp.onclick=()=>{sp.hidden=true;i.hidden=false;i.focus()};d.append(kk,i,sp,x);return d}
+const sp=document.createElement('span');sp.className='vv';sp.hidden=true;sp.onclick=()=>{sp.hidden=true;i.hidden=false;i.focus()};kk.ondblclick=()=>{if(p&&!Array.isArray(p))renameKey(kk,k,p)};d.append(kk,i,sp,acts(v,k,p,true));return d}
 const sortK=o=>Array.isArray(o)?o.map(sortK):o&&typeof o==='object'?Object.fromEntries(Object.keys(o).sort().map(k=>[k,sortK(o[k])])):o;
 inp.oninput=parse;$('#ind').onchange=()=>{if(data!==null)sync()};
 $('#fmt').onclick=()=>{parse();if(data!==null)sync()};
@@ -250,6 +273,16 @@ else{stat.className='st er';stat.textContent='✕ No JSON found inside this stri
 $('#cpf').onclick=()=>{parse();if(data!==null)copy(JSON.stringify(data,null,ind()))};
 $('#cp1').onclick=()=>{parse();if(data!==null)copy(JSON.stringify(data))};
 $('#clr').onclick=()=>{inp.value='';parse();tree.textContent=''};
+/* Bracket matching */
+let bc={t:null,m:null};
+function pairs(t){if(bc.t===t)return bc.m;const m=new Map(),st=[];let q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c==='\\')i++;else if(c==='"')q=false;continue}if(c==='"')q=true;else if(c==='{'||c==='[')st.push(i);else if(c==='}'||c===']'){const o=st.pop();if(o===undefined)break;m.set(o,i);m.set(i,o)}}bc={t,m};return m}
+function hlClear(){mir.textContent=''}
+function hlUpdate(){if(data===null||inp.selectionStart!==inp.selectionEnd){hlClear();return}const t=inp.value;if(t.length>2e6){hlClear();return}const pos=inp.selectionStart,isB=i=>i>=0&&i<t.length&&'{}[]'.includes(t[i]);const a=isB(pos)?pos:isB(pos-1)?pos-1:-1;if(a<0){hlClear();return}const b=pairs(t).get(a);if(b===undefined){hlClear();return}
+const x=Math.min(a,b),y=Math.max(a,b);mir.innerHTML=esc(t.slice(0,x))+'<mark>'+t[x]+'</mark>'+esc(t.slice(x+1,y))+'<mark>'+t[y]+'</mark>'+esc(t.slice(y+1))+(t.endsWith('\n')?' ':'');
+mir.style.right=Math.max(0,inp.offsetWidth-inp.clientWidth-2)+'px';mir.scrollTop=inp.scrollTop;mir.scrollLeft=inp.scrollLeft}
+['click','keyup','input'].forEach(ev=>inp.addEventListener(ev,hlUpdate));inp.addEventListener('blur',hlClear);
+inp.addEventListener('scroll',()=>{mir.scrollTop=inp.scrollTop;mir.scrollLeft=inp.scrollLeft});
+addEventListener('resize',()=>{if(mir.firstChild)hlUpdate()});
 let hits=[],hi=0;
 const hl=(s,q)=>{s=String(s);if(!q)return esc(s);const l=s.toLowerCase();let o='',i=0,j;while((j=l.indexOf(q,i))>-1){o+=esc(s.slice(i,j))+'<mark>'+esc(s.slice(j,j+q.length))+'</mark>';i=j+q.length}return o+esc(s.slice(i))};
 function cur(scroll=true){$$('.tree .cur').forEach(x=>x.classList.remove('cur'));const h=hits[hi];if(h){h.classList.add('cur');if(scroll)h.scrollIntoView({block:'nearest'})}$('#mc').textContent=hits.length?(hi+1)+' / '+hits.length:'No matches'}
@@ -265,6 +298,15 @@ $('#nx').onclick=()=>step(1);$('#pv').onclick=()=>step(-1);
 $('#exp').onclick=()=>$$('.tree details').forEach(d=>d.open=true);
 $('#col').onclick=()=>$$('.tree details').forEach((d,i)=>d.open=i===0);
 $('#smp').onclick=()=>{inp.value='{"name":"DevKit","version":"2.0.0","tags":["json","time","tools"],"author":{"name":"Ada","active":true},"stats":{"users":1280,"rating":4.8,"beta":null},"created":1767225600000}';parse();sync()};
+/* Resizable split */
+(()=>{const sp=$('#split'),g=sp.parentElement;let pct=50;try{const v=+localStorage.getItem('dk-split');if(v>=20&&v<=80)pct=v}catch(e){}
+const set=(v,save)=>{pct=Math.max(20,Math.min(80,v));g.style.setProperty('--l',pct+'fr');g.style.setProperty('--r',(100-pct)+'fr');sp.setAttribute('aria-valuenow',Math.round(pct));if(save)try{localStorage.setItem('dk-split',String(pct))}catch(e){}};
+sp.onpointerdown=e=>{e.preventDefault();sp.setPointerCapture(e.pointerId);sp.classList.add('drag');document.body.style.userSelect='none'};
+sp.onpointermove=e=>{if(!sp.classList.contains('drag'))return;const r=g.getBoundingClientRect();set((e.clientX-r.left-8)/(r.width-16)*100)};
+sp.onpointerup=sp.onpointercancel=()=>{sp.classList.remove('drag');document.body.style.userSelect='';set(pct,true)};
+sp.ondblclick=()=>set(50,true);
+sp.onkeydown=e=>{const d=e.key==='ArrowLeft'?-2:e.key==='ArrowRight'?2:0;if(d){e.preventDefault();e.stopPropagation();set(pct+d,true)}else if(e.key==='Home'){e.preventDefault();set(50,true)}};
+set(pct)})();
 /* Time */
 const TZ=('ACDT|Australian Central Daylight Time|630;ACST|Australian Central Standard Time|570;ADT|Atlantic Daylight Time|-180;AEDT|Australian Eastern Daylight Time|660;AEST|Australian Eastern Standard Time|600;AFT|Afghanistan Time|270;AKDT|Alaska Daylight Time|-480;AKST|Alaska Standard Time|-540;AMT|Armenia Time|240;ART|Argentina Time|-180;AST|Arabia Standard Time|180;AST|Atlantic Standard Time|-240;AWST|Australian Western Standard Time|480;AZT|Azerbaijan Time|240;BDT|Bangladesh Standard Time|360;BRT|Brasília Time|-180;BST|British Summer Time|60;BTT|Bhutan Time|360;CAT|Central Africa Time|120;CDT|Central Daylight Time|-300;CEST|Central European Summer Time|120;CET|Central European Time|60;CLT|Chile Standard Time|-240;COT|Colombia Time|-300;CST|Central Standard Time|-360;CST|China Standard Time|480;CST|Cuba Standard Time|-300;EAT|East Africa Time|180;EDT|Eastern Daylight Time|-240;EEST|Eastern European Summer Time|180;EET|Eastern European Time|120;EST|Eastern Standard Time|-300;GMT|Greenwich Mean Time|0;GST|Gulf Standard Time|240;HDT|Hawaii–Aleutian Daylight Time|-540;HKT|Hong Kong Time|480;HST|Hawaii–Aleutian Standard Time|-600;ICT|Indochina Time|420;IRST|Iran Standard Time|210;IST|India Standard Time|330;IST|Irish Standard Time|60;IST|Israel Standard Time|120;JST|Japan Standard Time|540;KST|Korea Standard Time|540;MDT|Mountain Daylight Time|-360;MMT|Myanmar Time|390;MSK|Moscow Time|180;MST|Mountain Standard Time|-420;MYT|Malaysia Time|480;NDT|Newfoundland Daylight Time|-150;NPT|Nepal Time|345;NST|Newfoundland Standard Time|-210;NZDT|New Zealand Daylight Time|780;NZST|New Zealand Standard Time|720;PDT|Pacific Daylight Time|-420;PET|Peru Time|-300;PHT|Philippine Time|480;PKT|Pakistan Standard Time|300;PST|Pacific Standard Time|-480;SAST|South African Standard Time|120;SGT|Singapore Time|480;SST|Samoa Standard Time|-660;UTC|Coordinated Universal Time|0;UYT|Uruguay Time|-180;UZT|Uzbekistan Time|300;VET|Venezuelan Standard Time|-240;WAT|West Africa Time|60;WEST|Western European Summer Time|60;WET|Western European Time|0;WIB|Western Indonesian Time|420;WIT|Eastern Indonesian Time|540;WITA|Central Indonesia Time|480;YEKT|Yekaterinburg Time|300').split(';').map(l=>{const[a,n,o]=l.split('|');return{a,n,o:+o,k:a+'|'+o}});
 const OFF=m=>(m<0?'-':'+')+String(Math.floor(Math.abs(m)/60)).padStart(2,'0')+':'+String(Math.abs(m)%60).padStart(2,'0');
