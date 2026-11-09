@@ -156,12 +156,13 @@ body.full main{padding:18px 26px 60px}
 #v-json .tree{flex:1;min-height:0;max-height:none}}
 #dtb,#dpok{display:none}.dd{display:block}#dtp.dd-p{position:static;box-shadow:none;max-width:100%;width:340px;background:var(--s2);margin:0}#dtres{flex:1;min-width:190px;display:flex;flex-direction:column;gap:10px}.grid.tr{margin-bottom:16px}.grid.tr>.card{margin-bottom:0}
 #nd{margin-bottom:16px}.nd-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--bd)}.nd-c .lbl{display:block;margin-bottom:6px}.nd-b{display:flex;flex-wrap:wrap;gap:8px}
+td.d{white-space:nowrap;padding-right:14px;font:600 12px var(--mono);color:var(--mu)}#tbl .th th{position:sticky;top:0;z-index:1;background:var(--s1);text-align:left;font:700 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);padding:6px;border-bottom:1px solid var(--bd)}
 .zscroll{max-height:calc(100vh - 240px);min-height:220px;overflow:auto;overscroll-behavior:contain;margin-top:4px}
 .tcols{display:grid;grid-template-columns:minmax(360px,460px) minmax(0,1fr);gap:16px;align-items:start}.tcols>.card{margin:0;min-width:0}@media(max-width:1180px){.tcols{grid-template-columns:minmax(0,1fr)}}
 .nd-main{display:flex;flex-direction:column;gap:16px}.nd-p{min-width:0}.nd-p .lbl{display:block;margin-bottom:10px}.nd-p #dtp.dd-p.dp{width:100%}
 #dtres{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:4px 0;gap:0;min-width:0}.rr{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--bd)}.rr:last-child{border-bottom:0}.rr span{width:84px;flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}.rr b{flex:1;min-width:0;font:600 15px var(--mono);word-break:break-all}.rr .b{min-height:34px;padding:4px 12px;font-size:13px}
 @media(max-width:860px){.nd-main{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:600px){.dsg{font-size:clamp(13px,4.4vw,18px)}.dsg input{font-size:inherit}#tbl,#tbl tbody{display:block}#tbl tr{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;padding:8px 0;border-bottom:1px solid var(--bd)}#tbl td{border:0;padding:0}#tbl td.z{flex:1 1 100%;white-space:normal;padding:0}#tbl td.v{flex:1 1 0;min-width:0}}
+@media(max-width:600px){.dsg{font-size:clamp(13px,4.4vw,18px)}.dsg input{font-size:inherit}#tbl,#tbl tbody{display:block}#tbl tr{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;padding:8px 0;border-bottom:1px solid var(--bd)}#tbl td{border:0;padding:0}#tbl td.z{flex:1 1 100%;white-space:normal;padding:0}#tbl .th{display:none}#tbl td.d{flex:1 1 100%;padding:0}#tbl td.d:empty{display:none}#tbl td.v{flex:1 1 0;min-width:0}}
 </style>
 </head>
 <body class="full">
@@ -336,6 +337,8 @@ const OFF=m=>(m<0?'-':'+')+String(Math.floor(Math.abs(m)/60)).padStart(2,'0')+':
 const TZN={};TZ.forEach(t=>TZN[t.k]=t.n);
 const io=(z,ms=Date.now())=>{try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZoneName:'longOffset'}).formatToParts(new Date(ms)).find(x=>x.type==='timeZoneName').value;return p==='GMT'?'UTC+00:00':p.replace('GMT','UTC')}catch(e){return ''}};
 const zl=(z,ms)=>z==='local'?'Local · '+LZ:z.includes('|')?(TZN[z]||z):z.replace(/_/g,' ');
+const zoff=(ms,z)=>{if(z.includes('|'))return +z.split('|')[1];try{const v=new Intl.DateTimeFormat('en-US',{timeZone:z==='local'?LZ:z,timeZoneName:'longOffset'}).formatToParts(new Date(ms)).find(x=>x.type==='timeZoneName').value,m=v.match(/([+-])(\d{2}):(\d{2})/);return m?(m[1]==='-'?-1:1)*(+m[2]*60+ +m[3]):0}catch(e){return NaN}};
+const dfx=(z,ms)=>{if(z==='local')return '<span class="df">your zone</span>';const d=zoff(ms,z)-zoff(ms,'local');if(isNaN(d))return '';if(!d)return '<span class="df">same as local</span>';const a=Math.abs(d),h=Math.floor(a/60),m=a%60;return '<span class="df">'+(d>0?'▲ ':'▼ ')+(h?h+'h':'')+(h&&m?' ':'')+(m?m+'m':'')+(d>0?' ahead':' behind')+'</span>'};
 let zones=['local','UTC|0','EST|-300','PST|-480','IST|330','JST|540'];
 const LZ=Intl.DateTimeFormat().resolvedOptions().timeZone;$('#lz').textContent=LZ;
 const fmt=(ms,z)=>{try{if(z.includes('|')){const[a,o]=z.split('|');return new Intl.DateTimeFormat('en-GB',{timeZone:'UTC',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date(ms+o*60000))+' UTC'+OFF(+o)}return new Intl.DateTimeFormat('en-GB',{timeZone:z==='local'?LZ:z,year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZoneName:'longOffset'}).format(new Date(ms)).replace('GMT','UTC')}catch(e){return '—'}};
@@ -344,8 +347,8 @@ function drawTime(){const raw=$('#ts').value.trim(),t=$('#tbl');
 if(!raw||isNaN(+raw)){t.innerHTML='<tr><td style="color:var(--mu)">Enter a timestamp, or press “Use now”, to see it in every zone.</td></tr>';return}
 const ms=$('#unit').value==='s'?+raw*1000:+raw;if(isNaN(new Date(ms).getTime())){t.innerHTML='<tr><td class="er">Out of range</td></tr>';return}
 const iso=new Date(ms).toISOString();
-let h=`<tr><td class="z">ISO 8601</td><td class="v">${iso}</td><td><button class="b" data-c="${iso}">Copy</button></td></tr><tr><td class="z">Relative</td><td class="v">${rel(ms)}</td><td></td></tr>`;
-zones.forEach(z=>{const f=fmt(ms,z);h+=`<tr><td class="z">${zl(z,ms)}</td><td class="v">${f}</td><td style="white-space:nowrap"><button class="b" data-c="${f}">Copy</button>${z==='local'?'':` <button class="b" data-z="${z}" aria-label="Remove ${z}">✕</button>`}</td></tr>`});
+let h=`<tr class="th"><th>Zone</th><th>vs local</th><th>Time</th><th></th></tr><tr><td class="z">ISO 8601</td><td class="d"></td><td class="v">${iso}</td><td><button class="b" data-c="${iso}">Copy</button></td></tr><tr><td class="z">Relative</td><td class="d"></td><td class="v">${rel(ms)}</td><td></td></tr>`;
+zones.forEach(z=>{const f=fmt(ms,z);h+=`<tr><td class="z">${zl(z,ms)}</td><td class="d">${dfx(z,ms)}</td><td class="v">${f}</td><td style="white-space:nowrap"><button class="b" data-c="${f}">Copy</button>${z==='local'?'':` <button class="b" data-z="${z}" aria-label="Remove ${z}">✕</button>`}</td></tr>`});
 t.innerHTML=h}
 $('#tbl').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.c)copy(b.dataset.c);if(b.dataset.z){zones=zones.filter(z=>z!==b.dataset.z);drawTime()}};
 $('#ts').oninput=drawTime;$('#unit').onchange=drawTime;
