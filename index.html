@@ -138,7 +138,14 @@ body.full .card{padding:12px;margin-bottom:12px}body.full .grid{gap:12px}body.fu
 #dtp.dd-p.dp{width:380px}.dsg{display:flex;align-items:center;justify-content:center;gap:2px;padding:8px;margin-bottom:6px;background:var(--s1);border:1px solid var(--bd);border-radius:12px;font:700 18px var(--mono);color:var(--mu)}
 .dsg input{width:2.3em;padding:6px 0;text-align:center;font:700 1em var(--mono);color:var(--tx);background:transparent;border:1px solid transparent;border-radius:9px;min-height:0}.dsg input.y{width:3.3em}.dsg input:focus{background:var(--s2);border-color:var(--a2);outline:0;box-shadow:0 0 0 3px color-mix(in srgb,var(--a2) 25%,transparent)}.dsg .gp{width:10px}
 .dsk{font-size:11px;color:var(--mu);text-align:center;margin-bottom:10px}.dsk kbd{font:600 11px var(--mono);background:var(--s1);border:1px solid var(--bd);border-radius:5px;padding:0 5px}
-#dpm{flex:1;margin:0 2px;border-color:transparent;background:transparent}#dpm:hover{background:var(--s1);border-color:var(--bd)}.dph .b:not(#dpm){padding:4px 10px}.dph{gap:2px}#dpg{min-height:244px;align-content:start}#dpg.dpx{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(4,1fr);gap:6px;align-content:stretch}#dpg.dpx button{height:auto;font-weight:600}
+/* compact calendar */
+#dtp.dd-p.dp{padding:10px}.dsg{padding:5px;margin-bottom:4px;font-size:16px}.dsg input{padding:3px 0}.dsk{margin-bottom:6px}.dph{margin-bottom:4px}.dph .b{min-height:30px}.dph .b:not(#dpm){padding:2px 9px}
+.dpg span{padding:2px 0;font-size:10px}#dpg button{height:27px;font-size:13px;border-radius:8px}#dpg{min-height:196px}.dpg{gap:1px}.dpt{margin-top:8px}.dpt .b{min-height:34px}
+.dpa{margin-top:10px;padding-top:8px;border-top:1px solid var(--bd)}.dpal{display:block;font:700 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:6px}
+.dpar{display:flex;align-items:center;gap:6px}.dpar .b{min-height:34px;padding:4px 12px}.dpar .sg{width:34px;padding:4px 0;font-size:18px;line-height:1}.dpar .sg.on{background:var(--g);border-color:transparent;color:#fff}
+.dpar #aamt{width:64px;min-width:0;text-align:center;padding:6px 4px;font:700 15px var(--mono)}.dpar .dd{flex:1;min-width:0}.dpar .dd-b{min-width:0;min-height:34px;padding:4px 10px}
+.dpp{margin-top:6px;font:600 12px var(--mono);color:var(--mu);min-height:1.4em}.dpp b{color:var(--tx)}.dpp.er{color:var(--er)}
+#dpm{flex:1;margin:0 2px;border-color:transparent;background:transparent}#dpm:hover{background:var(--s1);border-color:var(--bd)}.dph .b:not(#dpm){padding:4px 10px}.dph{gap:2px}#dpg{min-height:190px;align-content:start}#dpg.dpx{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(4,1fr);gap:6px;align-content:stretch}#dpg.dpx button{height:auto;font-weight:600}
 #theme.tg{padding:3px;min-height:0;background:var(--s1);border:1px solid var(--bd);border-radius:12px}
 .tg button{width:34px;height:34px;border:0;border-radius:9px;background:none;color:var(--mu);cursor:pointer;display:grid;place-items:center}.tg button:hover{color:var(--tx)}.tg button.on{background:var(--g);color:#fff}
 .lf.hit .k{background:color-mix(in srgb,var(--a2) 28%,transparent);border-radius:4px}.lf.hit input,.lf.hit textarea,.lf.hit .ve{outline:2px solid var(--a2)}
@@ -158,11 +165,13 @@ body.full main{padding:18px 26px 60px}
 #nd{margin-bottom:16px}.nd-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--bd)}.nd-c .lbl{display:block;margin-bottom:6px}.nd-b{display:flex;flex-wrap:wrap;gap:8px}
 td.d{white-space:nowrap;padding-right:14px;font:600 12px var(--mono);color:var(--mu)}#tbl .th th{position:sticky;top:0;z-index:1;background:var(--s1);text-align:left;font:700 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);padding:6px;border-bottom:1px solid var(--bd)}
 .zscroll{max-height:calc(100vh - 240px);min-height:220px;overflow:auto;overscroll-behavior:contain;margin-top:4px}
-.tcols{display:grid;grid-template-columns:minmax(360px,460px) minmax(0,1fr);gap:16px;align-items:start}.tcols>.card{margin:0;min-width:0}@media(max-width:1180px){.tcols{grid-template-columns:minmax(0,1fr)}}
+.tcols{display:grid;grid-template-columns:minmax(340px,400px) minmax(0,1fr);gap:16px;align-items:start}.tcols>.card{margin:0;min-width:0}@media(max-width:1180px){.tcols{grid-template-columns:minmax(0,1fr)}}
 .nd-main{display:flex;flex-direction:column;gap:16px}.nd-p{min-width:0}.nd-p .lbl{display:block;margin-bottom:10px}.nd-p #dtp.dd-p.dp{width:100%}
 #dtres{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:4px 0;gap:0;min-width:0}.rr{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--bd)}.rr:last-child{border-bottom:0}.rr span{width:84px;flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}.rr b{flex:1;min-width:0;font:600 15px var(--mono);word-break:break-all}.rr .b{min-height:34px;padding:4px 12px;font-size:13px}
 @media(max-width:860px){.nd-main{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.dsg{font-size:clamp(13px,4.4vw,18px)}.dsg input{font-size:inherit}#tbl,#tbl tbody{display:block}#tbl tr{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;padding:8px 0;border-bottom:1px solid var(--bd)}#tbl td{border:0;padding:0}#tbl td.z{flex:1 1 100%;white-space:normal;padding:0}#tbl .th{display:none}#tbl td.d{flex:1 1 100%;padding:0}#tbl td.d:empty{display:none}#tbl td.v{flex:1 1 0;min-width:0}}
+.dpar #asub,.dpar #aadd{background:var(--g);border-color:transparent;color:#fff;font-size:20px}.dpar .sg:disabled{opacity:.4}
+.hint td{color:var(--mu);font-size:13px;padding:8px 6px!important}.hint .b{margin-left:8px;min-height:36px;padding:0 12px;font-size:13px}#dri{font-size:13px;white-space:nowrap}
 </style>
 </head>
 <body class="full">
@@ -190,14 +199,15 @@ td.d{white-space:nowrap;padding-right:14px;font:600 12px var(--mono);color:var(-
 <div class="grid">
 <div class="card"><div class="row" style="margin:0 0 8px"><label class="lbl" for="inp" style="margin:0">JSON text</label><div class="st" id="stat" role="status" style="margin:0;min-height:0;flex:1;text-align:right"></div></div><div class="tw" id="tw"><div class="mir" id="mir" aria-hidden="true"></div><textarea id="inp" spellcheck="false" placeholder="Paste JSON here…"></textarea></div></div>
 <div class="split" id="split" role="separator" aria-orientation="vertical" aria-label="Resize JSON text and visual editor" aria-valuemin="20" aria-valuemax="80" aria-valuenow="50" tabindex="0" title="Drag to resize · double-click to reset"></div>
-<div class="card"><div class="row" style="margin:0 0 8px"><span class="lbl" style="margin:0;flex:1">Visual editor <span class="chip" id="mc" hidden></span></span><button class="b" id="exp">Expand</button><button class="b" id="col">Collapse</button></div><div class="row" style="margin:0 0 10px"><input id="qk" type="search" class="s" placeholder="Find key…" aria-label="Find key" style="flex:1;min-width:130px"><input id="qv" type="search" class="s" placeholder="Find value…" aria-label="Find value" style="flex:1;min-width:130px"><button class="b" id="pv" aria-label="Previous match">▲</button><button class="b" id="nx" aria-label="Next match">▼</button><label class="ck" style="color:var(--mu)"><input type="checkbox" id="only">Only matches</label></div><div class="tree" id="tree"><span style="color:var(--mu)">Valid JSON shows up here as an editable tree. Click a value to edit it, double-click a key to rename it, and hover a row to copy, rename or delete.</span></div></div>
+<div class="card"><div class="row" style="margin:0 0 8px"><span class="lbl" style="margin:0;flex:1">Visual editor <span class="chip" id="mc" hidden></span></span><button class="b" id="exp">Expand</button><button class="b" id="col">Collapse</button></div><div class="row" style="margin:0 0 10px"><input id="qk" type="search" class="s" placeholder="Find key…" aria-label="Find key" style="flex:1;min-width:130px"><input id="qv" type="search" class="s" placeholder="Find value…" aria-label="Find value" style="flex:1;min-width:130px"><button class="b" id="pv" aria-label="Previous match">▲</button><button class="b" id="nx" aria-label="Next match">▼</button><label class="ck" style="color:var(--mu)"><input type="checkbox" id="only">Only matches</label></div><div class="tree" id="tree"><span style="color:var(--mu)">Valid JSON shows up here as an editable tree. Click a value to edit it, double-click a key to rename it, and hover a row to copy, rename, duplicate or delete.</span></div></div>
 </div></section>
 
 <section class="view" id="v-time">
 <div class="tcols">
 <div class="card" id="nd">
 <div class="nd-top"><div class="nd-c"><span class="lbl">Right now · <span id="lz"></span></span><div class="now" id="now"></div></div><div class="nd-b"><button class="b p" id="nownow" title="Put the current time in Timestamp and show every zone">Use now</button><button class="b" id="nowms"></button></div></div>
-<div class="nd-main"><div class="nd-p"><label class="lbl" for="dt">Date → timestamp (your zone)</label><input id="dt" hidden><div class="dd"><button type="button" class="b dd-b" id="dtb" aria-haspopup="dialog" aria-expanded="false"><span id="dtl">Pick date &amp; time</span><i>▾</i></button><div class="dd-p dp" id="dtp" tabindex="-1" role="dialog" aria-label="Pick date and time"><div class="dsg" id="dsg" role="group" aria-label="Date and time fields"><input id="dpy" data-f="y" class="y" inputmode="numeric" maxlength="4" aria-label="Year">-<input id="dpo" data-f="m" inputmode="numeric" maxlength="2" aria-label="Month">-<input id="dpd" data-f="d" inputmode="numeric" maxlength="2" aria-label="Day"><span class="gp"></span><input id="dph" data-f="H" inputmode="numeric" maxlength="2" aria-label="Hours">:<input id="dpi" data-f="M" inputmode="numeric" maxlength="2" aria-label="Minutes">:<input id="dps" data-f="S" inputmode="numeric" maxlength="2" aria-label="Seconds"></div><div class="dsk"><kbd>↑↓</kbd> step <kbd>←→</kbd> move <kbd>Shift</kbd> ×10</div><div class="dph"><button type="button" class="b" id="dpyp" aria-label="Previous year">«</button><button type="button" class="b" id="dpv" aria-label="Previous month">‹</button><button type="button" class="b" id="dpm"></button><button type="button" class="b" id="dpn" aria-label="Next month">›</button><button type="button" class="b" id="dpyn" aria-label="Next year">»</button></div><div class="dpg" id="dpg"></div><div class="dpt"><span class="sp"></span><button type="button" class="b p" id="dpuse" title="Put the picked date and time (ms) in Timestamp and show every zone">Use picked date &amp; time</button></div></div></div></div>
+<div class="nd-main"><div class="nd-p"><label class="lbl" for="dt">Date → timestamp (your zone)</label><input id="dt" hidden><div class="dd"><button type="button" class="b dd-b" id="dtb" aria-haspopup="dialog" aria-expanded="false"><span id="dtl">Pick date &amp; time</span><i>▾</i></button><div class="dd-p dp" id="dtp" tabindex="-1" role="dialog" aria-label="Pick date and time"><div class="dsg" id="dsg" role="group" aria-label="Date and time fields"><input id="dpy" data-f="y" class="y" inputmode="numeric" maxlength="4" aria-label="Year">-<input id="dpo" data-f="m" inputmode="numeric" maxlength="2" aria-label="Month">-<input id="dpd" data-f="d" inputmode="numeric" maxlength="2" aria-label="Day"><span class="gp"></span><input id="dph" data-f="H" inputmode="numeric" maxlength="2" aria-label="Hours">:<input id="dpi" data-f="M" inputmode="numeric" maxlength="2" aria-label="Minutes">:<input id="dps" data-f="S" inputmode="numeric" maxlength="2" aria-label="Seconds"></div><div class="dsk"><kbd>↑↓</kbd> step <kbd>←→</kbd> move <kbd>Shift</kbd> ×10</div><div class="dph"><button type="button" class="b" id="dpyp" aria-label="Previous year">«</button><button type="button" class="b" id="dpv" aria-label="Previous month">‹</button><button type="button" class="b" id="dpm"></button><button type="button" class="b" id="dpn" aria-label="Next month">›</button><button type="button" class="b" id="dpyn" aria-label="Next year">»</button></div><div class="dpg" id="dpg"></div><div class="dpa" role="group" aria-label="Add or subtract time"><span class="dpal">Add / subtract</span><div class="dpar"><button type="button" class="b sg" id="asub" aria-label="Subtract">−</button><button type="button" class="b sg" id="aadd" aria-label="Add">+</button><input id="aamt" inputmode="numeric" maxlength="6" value="1" aria-label="Amount"><select id="aunit" aria-label="Unit"><option value="S">Seconds</option><option value="M">Minutes</option><option value="H">Hours</option><option value="d" selected>Days</option><option value="w">Weeks</option><option value="m">Months</option><option value="y">Years</option></select></div><div class="dpp" id="aprev" aria-live="polite"></div></div>
+<div class="dpt"><span class="sp"></span><button type="button" class="b p" id="dpuse" title="Put the picked date and time (ms) in Timestamp and show every zone">Use picked date &amp; time</button></div></div></div></div>
 <div id="dtres" role="group" aria-label="Picked date as timestamp"><span id="dres" hidden></span>
 <div class="rr"><span>Epoch ms</span><b id="drms"></b><button class="b" id="dcp">Copy</button></div>
 <div class="rr"><span>Epoch s</span><b id="drs"></b><button class="b" id="dcps">Copy</button></div>
@@ -270,6 +280,7 @@ function acts(v,k,p,del){const g=document.createElement('span');g.className='ac'
 const mk=(c,t,l,fn)=>{const b=document.createElement('button');b.type='button';b.className='ab '+c;b.textContent=t;b.title=l;b.setAttribute('aria-label',l);b.onclick=e=>{e.preventDefault();e.stopPropagation();fn(e)};g.appendChild(b)};
 mk('','\u29c9',keyed?'Copy field and value (Shift: value only)':'Copy value',e=>{const t=JSON.stringify(v,null,ind());copy(keyed&&!e.shiftKey?JSON.stringify(k)+': '+t:t)});
 if(keyed)mk('','\u270e','Rename key',()=>renameKey(g.parentElement.firstElementChild,k,p));
+if(p)mk('',"\u2750",keyed?'Duplicate field and value':'Duplicate item',()=>{const c=JSON.parse(JSON.stringify(v));let msg;if(Array.isArray(p)){p.splice(+k+1,0,c);msg='Duplicated item '+k}else{let nk=k+'_copy',n=2;while(Object.prototype.hasOwnProperty.call(p,nk))nk=k+'_copy'+n++;const ent=Object.entries(p);ent.forEach(([x])=>delete p[x]);ent.forEach(([x,y])=>{p[x]=y;if(x===k)p[nk]=c});msg='Duplicated "'+k+'" as "'+nk+'"'}sync();parse();stat.className='st ok';stat.textContent='\u2713 '+msg});
 if(del&&p)mk('del','\u2715','Delete '+k,()=>{Array.isArray(p)?p.splice(k,1):delete p[k];sync();parse()});return g}
 function node(v,k,p,open){const d=document.createElement('div');
 if(v&&typeof v==='object'){const a=Array.isArray(v),det=document.createElement('details');det.open=true;det.dataset.k=String(k);
@@ -336,21 +347,24 @@ const TZ=('ACDT|Australian Central Daylight Time|630;ACST|Australian Central Sta
 const OFF=m=>(m<0?'-':'+')+String(Math.floor(Math.abs(m)/60)).padStart(2,'0')+':'+String(Math.abs(m)%60).padStart(2,'0');
 const TZN={};TZ.forEach(t=>TZN[t.k]=t.n);
 const io=(z,ms=Date.now())=>{try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZoneName:'longOffset'}).formatToParts(new Date(ms)).find(x=>x.type==='timeZoneName').value;return p==='GMT'?'UTC+00:00':p.replace('GMT','UTC')}catch(e){return ''}};
-const zl=(z,ms)=>z==='local'?'Local · '+LZ:z.includes('|')?(TZN[z]||z):z.replace(/_/g,' ');
+const zl=(z,ms)=>z==='local'?'Local · '+LZ:z.includes('|')?(TZN[z]||z):zlong(z,ms);
 const zoff=(ms,z)=>{if(z.includes('|'))return +z.split('|')[1];try{const v=new Intl.DateTimeFormat('en-US',{timeZone:z==='local'?LZ:z,timeZoneName:'longOffset'}).formatToParts(new Date(ms)).find(x=>x.type==='timeZoneName').value,m=v.match(/([+-])(\d{2}):(\d{2})/);return m?(m[1]==='-'?-1:1)*(+m[2]*60+ +m[3]):0}catch(e){return NaN}};
 const dfx=(z,ms)=>{if(z==='local')return '<span class="df">your zone</span>';const d=zoff(ms,z)-zoff(ms,'local');if(isNaN(d))return '';if(!d)return '<span class="df">same as local</span>';const a=Math.abs(d),h=Math.floor(a/60),m=a%60;return '<span class="df">'+(d>0?'▲ ':'▼ ')+(h?h+'h':'')+(h&&m?' ':'')+(m?m+'m':'')+(d>0?' ahead':' behind')+'</span>'};
-let zones=['local','UTC|0','EST|-300','PST|-480','IST|330','JST|540'];
-const LZ=Intl.DateTimeFormat().resolvedOptions().timeZone;$('#lz').textContent=LZ;
+let zones=['local','UTC|0','America/New_York','America/Los_Angeles','Asia/Kolkata','Asia/Tokyo'];
+const LZ=Intl.DateTimeFormat().resolvedOptions().timeZone;
+const canon=z=>{try{return new Intl.DateTimeFormat('en-US',{timeZone:z}).resolvedOptions().timeZone}catch(e){return z}};
+const dupLocal=z=>z==='UTC|0'?['UTC','Etc/UTC','Etc/GMT','GMT'].includes(canon(LZ)):!z.includes('|')&&canon(z)===canon(LZ);
+const zlong=(z,ms)=>{try{const n=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZoneName:'long'}).formatToParts(new Date(ms)).find(x=>x.type==='timeZoneName').value;return n+' \u00b7 '+z.split('/').pop().replace(/_/g,' ')}catch(e){return z.replace(/_/g,' ')}};$('#lz').textContent=LZ;
 const fmt=(ms,z)=>{try{if(z.includes('|')){const[a,o]=z.split('|');return new Intl.DateTimeFormat('en-GB',{timeZone:'UTC',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date(ms+o*60000))+' UTC'+OFF(+o)}return new Intl.DateTimeFormat('en-GB',{timeZone:z==='local'?LZ:z,year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZoneName:'longOffset'}).format(new Date(ms)).replace('GMT','UTC')}catch(e){return '—'}};
 function rel(ms){const s=Math.round((ms-Date.now())/1000),a=Math.abs(s);for(const[n,l]of [[31536000,'year'],[2592000,'month'],[86400,'day'],[3600,'hour'],[60,'minute'],[1,'second']])if(a>=n){const v=Math.round(a/n);return s<0?v+' '+l+(v>1?'s':'')+' ago':'in '+v+' '+l+(v>1?'s':'')}return 'just now'}
 function drawTime(){const raw=$('#ts').value.trim(),t=$('#tbl');
-if(!raw||isNaN(+raw)){t.innerHTML='<tr><td style="color:var(--mu)">Enter a timestamp, or press “Use now”, to see it in every zone.</td></tr>';return}
+if(raw&&isNaN(+raw)){t.innerHTML='<tr><td class="er">Not a valid number \u2014 enter digits only</td></tr>';return}if(!raw){t.innerHTML='<tr><td style="color:var(--mu)">Enter a timestamp, or press “Use now”, to see it in every zone.</td></tr>';return}
 const ms=$('#unit').value==='s'?+raw*1000:+raw;if(isNaN(new Date(ms).getTime())){t.innerHTML='<tr><td class="er">Out of range</td></tr>';return}
-const iso=new Date(ms).toISOString();
-let h=`<tr class="th"><th>Zone</th><th>vs local</th><th>Time</th><th></th></tr><tr><td class="z">ISO 8601</td><td class="d"></td><td class="v">${iso}</td><td><button class="b" data-c="${iso}">Copy</button></td></tr><tr><td class="z">Relative</td><td class="d"></td><td class="v">${rel(ms)}</td><td></td></tr>`;
-zones.forEach(z=>{const f=fmt(ms,z);h+=`<tr><td class="z">${zl(z,ms)}</td><td class="d">${dfx(z,ms)}</td><td class="v">${f}</td><td style="white-space:nowrap"><button class="b" data-c="${f}">Copy</button>${z==='local'?'':` <button class="b" data-z="${z}" aria-label="Remove ${z}">✕</button>`}</td></tr>`});
+const iso=new Date(ms).toISOString();const ab=Math.abs(+raw),un=$('#unit').value,hint=un==='ms'&&ab>=1e8&&ab<1e11?['s','seconds']:un==='s'&&ab>=1e11?['ms','milliseconds']:null;
+let h=(hint?`<tr class="hint"><td colspan="4">Looks like ${hint[1]} \u2014 <button class="b" data-u="${hint[0]}">Switch to ${hint[1]}</button></td></tr>`:'')+`<tr class="th"><th>Zone</th><th>vs local</th><th>Time</th><th></th></tr><tr><td class="z">ISO 8601</td><td class="d"></td><td class="v">${iso}</td><td><button class="b" data-c="${iso}">Copy</button></td></tr><tr><td class="z">Relative</td><td class="d"></td><td class="v">${rel(ms)}</td><td></td></tr>`;
+zones.forEach(z=>{if(z!=='local'&&dupLocal(z))return;const f=fmt(ms,z);h+=`<tr><td class="z">${zl(z,ms)}</td><td class="d">${dfx(z,ms)}</td><td class="v">${f}</td><td style="white-space:nowrap"><button class="b" data-c="${f}">Copy</button>${z==='local'?'':` <button class="b" data-z="${z}" aria-label="Remove ${z}">✕</button>`}</td></tr>`});
 t.innerHTML=h}
-$('#tbl').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.c)copy(b.dataset.c);if(b.dataset.z){zones=zones.filter(z=>z!==b.dataset.z);drawTime()}};
+$('#tbl').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.u){$('#unit').value=b.dataset.u;$('#unit').dispatchEvent(new Event('change'));drawTime();return}if(b.dataset.c)copy(b.dataset.c);if(b.dataset.z){zones=zones.filter(z=>z!==b.dataset.z);drawTime()}};
 $('#ts').oninput=drawTime;$('#unit').onchange=drawTime;
 $('#tnow').onclick=()=>{$('#unit').value='ms';$('#ts').value=Date.now();drawTime()};
 let all=[];try{all=Intl.supportedValuesOf('timeZone')}catch(e){all=['Asia/Dubai','Asia/Singapore','Europe/Paris','America/Los_Angeles','Australia/Sydney']}
@@ -433,7 +447,7 @@ pop.onkeydown=e=>{e.stopPropagation();if(e.key==='Escape'){close();b.focus()}els
 if(q)q.oninput=()=>{ix=0;draw()};ul.onclick=e=>{const li=e.target.closest('li[data-i]');if(li)pick(+li.dataset.i)};
 document.addEventListener('click',e=>{if(!w.contains(e.target))close()});
 const d=Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value');Object.defineProperty(sel,'value',{get(){return d.get.call(sel)},set(v){d.set.call(sel,v);lab()}});lab()}
-[['#ind'],['#unit'],['#ucount'],['#halg'],['#ffmt'],['#addz',1]].forEach(([s,q])=>enhance($(s),q));
+[['#ind'],['#unit'],['#ucount'],['#halg'],['#ffmt'],['#addz',1],['#aunit']].forEach(([s,q])=>enhance($(s),q));
 /* Themed date-time picker */
 const p2=n=>String(n).padStart(2,'0');let dp={};
 const DPF={y:'#dpy',m:'#dpo',d:'#dpd',H:'#dph',M:'#dpi',S:'#dps'},DPO=['y','m','d','H','M','S'],dim=(y,m)=>new Date(y,m+1,0).getDate();
@@ -452,13 +466,26 @@ g.className='dpg'+(dpView==='d'?'':' dpx');g.innerHTML=h;$('#dpm').textContent=t
 $('#dpyp').hidden=$('#dpyn').hidden=dpView!=='d';
 const lb={d:['month','month'],m:['year','year'],y:['years','years']}[dpView];$('#dpv').setAttribute('aria-label','Previous '+lb[0]);$('#dpn').setAttribute('aria-label','Next '+lb[0]);
 $(DPF.y).value=dp.y;$(DPF.m).value=p2(dp.m+1);$(DPF.d).value=p2(dp.d);$(DPF.H).value=p2(dp.H);$(DPF.M).value=p2(dp.M);$(DPF.S).value=p2(dp.S)}
+let dpLive=false;
 function dpWrite(){const v=dp.y+'-'+p2(dp.m+1)+'-'+p2(dp.d)+'T'+p2(dp.H)+':'+p2(dp.M)+':'+p2(dp.S);$('#dt').value=v;
-$('#dtl').textContent=new Intl.DateTimeFormat('en-GB',{dateStyle:'medium',timeStyle:'medium'}).format(new Date(v));$('#dt').dispatchEvent(new Event('input'))}
+$('#dtl').textContent=new Intl.DateTimeFormat('en-GB',{dateStyle:'medium',timeStyle:'medium'}).format(new Date(v));$('#dt').dispatchEvent(new Event('input'));if($('#aprev'))dpPrev();if(dpLive){const ms=new Date(v).getTime();if(!isNaN(ms)){$('#ts').value=$('#unit').value==='s'?Math.floor(ms/1000):ms;drawTime()}}}
 function dpApply(){dpRead();dpDraw();dpWrite()}
 function dpStep(f,n){dpRead();let d;
 if(f==='y'||f==='m'){const t=new Date(dp.y+(f==='y'?n:0),dp.m+(f==='m'?n:0),1);d=new Date(t.getFullYear(),t.getMonth(),Math.min(dp.d,dim(t.getFullYear(),t.getMonth())),dp.H,dp.M,dp.S)}
 else{d=new Date(dp.y,dp.m,dp.d,dp.H,dp.M,dp.S);({d:()=>d.setDate(d.getDate()+n),H:()=>d.setHours(d.getHours()+n),M:()=>d.setMinutes(d.getMinutes()+n),S:()=>d.setSeconds(d.getSeconds()+n)})[f]()}
 dpInit(d);dpDraw();dpWrite()}
+let asign=1;
+function dpCalc(){const n=parseInt($('#aamt').value,10);if(Number.isNaN(n)||n<0)return null;dpRead();const u=$('#aunit').value,k=n*asign;let d=new Date(dp.y,dp.m,dp.d,dp.H,dp.M,dp.S);
+if(u==='y'||u==='m'){const t=new Date(dp.y,dp.m+k*(u==='y'?12:1),1);d=new Date(t.getFullYear(),t.getMonth(),Math.min(dp.d,dim(t.getFullYear(),t.getMonth())),dp.H,dp.M,dp.S)}
+else if(u==='d'||u==='w')d.setDate(d.getDate()+k*(u==='w'?7:1));
+else d=new Date(d.getTime()+k*({H:3600000,M:60000,S:1000})[u]);
+const y=d.getFullYear();return isNaN(d.getTime())||y<1000||y>9999?null:d}
+function dpPrev(){const el=$('#aprev'),ok=!!(asign=1,dpCalc())&&!!(asign=-1,dpCalc());asign=1;$('#asub').disabled=$('#aadd').disabled=!ok;if(!ok){el.className='dpp er';el.textContent=$('#aamt').value===''?'Enter an amount':'Out of range';return}
+el.className='dpp';el.textContent='Press − to subtract or + to add'}
+function dpAddApply(){const d=dpCalc();if(!d)return;dpInit(d);dpDraw();dpWrite()}
+$('#asub').onclick=()=>{asign=-1;dpAddApply()};
+$('#aadd').onclick=()=>{asign=1;dpAddApply()};
+$('#aamt').oninput=()=>{$('#aamt').value=$('#aamt').value.replace(/\D/g,'');dpPrev()};$('#aamt').onfocus=()=>$('#aamt').select();$('#aunit').onchange=dpPrev;$('#aamt').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();$('#aadd').click()}};
 function dpPlace(){}
 const dpClose=()=>{};
 const dpNav=k=>{if(dpView==='d')dpStep('m',k);else if(dpView==='m')dpStep('y',k);else dpStep('y',12*k)};
@@ -470,13 +497,13 @@ else if(b.dataset.yr!==undefined){dp.y=+b.dataset.yr;dp.d=Math.min(dp.d,dim(dp.y
 else if(b.dataset.d){dp.y=+b.dataset.y;dp.m=+b.dataset.m;dp.d=+b.dataset.d}else return;
 dpDraw();dpWrite()};
 $('#dpuse').onclick=()=>{dpApply();const v=$('#dt').value;if(!v)return;$('#unit').value='ms';$('#ts').value=new Date(v).getTime();drawTime();$('#tbl').scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})};
-$('#dtp').onkeydown=e=>{e.stopPropagation();const t=e.target,f=t.dataset&&t.dataset.f;if(!f)return;
+$('#dtp').onkeydown=e=>{e.stopPropagation();const t=e.target,f=t.dataset&&t.dataset.f;if(t.id==='aamt'&&e.key==='Enter'){e.preventDefault();dpAddApply();return}if(!f)return;
 if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();dpStep(f,(e.key==='ArrowUp'?1:-1)*(e.shiftKey?10:1));t.select()}
 else if(e.key==='ArrowLeft'||e.key==='ArrowRight'){const i=DPO.indexOf(f)+(e.key==='ArrowRight'?1:-1),nx=DPO[i];if(nx){e.preventDefault();$(DPF[nx]).focus()}}
 else if(e.key==='Enter'){e.preventDefault();dpApply();t.select()}};
 $$('#dsg input').forEach(i=>{i.onfocus=()=>i.select();i.onchange=dpApply;i.oninput=()=>{const f=i.dataset.f;if(/^\d+$/.test(i.value)&&i.value.length>=i.maxLength){dpApply();const nx=DPO[DPO.indexOf(f)+1];if(nx)$(DPF[nx]).focus()}}});
 dpInit(new Date());dpDraw();dpWrite();
-$('#tnow').click();
+$('#tnow').click();dpLive=true;
 document.addEventListener('click',e=>{const pth=e.composedPath();if(!pth.includes($('#dtp'))&&!pth.includes($('#dtb')))dpClose()});
 route();
 </script>
